@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .box {
+      width: 400px;
+      height: 300px;
+      border: 1px solid #ccc;
+      margin: 100px auto;
+      overflow: hidden;
+    }
+    .hd {
+      height: 45px;
+    }
+    .hd span {
+      display: inline-block;
+      width: 96px;
+      background-color: pink;
+      line-height: 45px;
+      text-align: center;
+      cursor: pointer;      
+    }
+    .hd span.current {
+      background-color: purple;
+    }
+    .bd div {
+      height: 255px;
+      background-color: purple;
+      display: none;
+    }
+    .bd div.current {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="hd" id="hd">
+      <span class="current">体育</span>
+      <span>娱乐</span>
+      <span>新闻</span>
+      <span>综合</span>
+    </div>
+
+    <div class="bd" id="bd">
+      <div class="current">我是体育地区</div>
+      <div>我是娱乐地区</div>
+      <div>我是新闻地区</div>
+      <div>我是综合地区</div>
+    </div>
+  </div>
+
+  <script>
+    // 鼠标经过高亮显示
+    var spans = document.querySelectorAll('#hd span');
+    var i = 0,len = spans.length;
+    for (;i < len;i++) {
+      var span = spans[i];
+      // 记录span的索引  把索引记录到了标签的自定义属性中
+      span.setAttribute('index',i);
+      // 注册事件
+      span.onmouseover = function () {
+        // 发生鼠标事件时，先取消所有span的classname属性
+        for (i = 0 ;i < len;i++) {
+          spans[i].className = '';
+        }
+        // 对当前的span设置current属性
+        this.className = 'current';
+
+        // 当tab栏高亮显示的时候，找到对应的详细内容，其他隐藏
+        // 给span记录索引  当鼠标进过span的时候，获取span索引 parseint把字符串转化为数字
+        var index = parseInt(this.getAttribute('index'));
+        var divs = document.querySelectorAll('#bd div');
+
+        var divLen = divs.length;
+        // 先隐藏所有的div
+        for (i = 0;i < divLen;i++) {
+          var div = divs[i];
+          div.className = '';
+        }
+        divs[index].className = 'current';
+      }
+    }
+  </script>
+</body>
+</html>

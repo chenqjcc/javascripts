@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function fn (name,age,subject,score) {
+
+    }
+    // 创建对象  ---方式1
+    var stu = {
+      name: 'zs',
+      age: '19',
+      subject: '语文',
+      score: 80,
+      say: function() {
+        console.log('hello everyone ! I am' + this.name);
+      }
+    }
+    function fn(stu) {}
+    
+    // 方法中的this，是调用这个方法的对象
+    stu.say();
+    // 只调用了函数方法.所以fun() 没有输出
+    var fun = stu.say;
+    fun();
+    
+
+    // 创建对象  ---方式2
+    var stu = new Object();
+      stu.name = 'zs';
+      stu.age = '19';
+      stu.subjec = '语文';
+      stu.score = 80;
+      stu.say = function() {
+        console.log('hello everyone ! I am' + this.name);
+      }
+
+
+      // 创建多个对象  ---方式3   
+      function createStudent(name,age,subject,score) {
+        var o = new.Object();
+        o.name = name;
+        o.age = age;
+        o.subjec = subject;
+        o.score = score;
+        o.say = function() {
+          console.log('hello everyone ! I am' + this.name);
+        }
+        return 0;
+      }
+      var s1 = createStudent('zs1',19,'语文',80);
+      var s2 = createStudent('zs2',19,'语文',80);
+      var s3 = createStudent('zs3',19,'语文',80);
+
+      // 创建对象  ---方式4  自定义构造函数
+      // new的作用：1、在内存中创建一个空对象  2、让构造函数中的this指向刚刚创建的对象  3、指执行构造函数(一般通过this设置对象的成员) 4、返回对象
+      function Student(name,age,subject,score) {
+        this.name = name;
+        this.age = age;
+        this.subjec = subject;
+        this.score = score;
+        this.say = function() {
+          console.log('hello everyone ! I am' + this.name);
+        }
+      }
+      var s4 = new Student('zs1',19,'语文',80);
+  </script>
+</body>
+</html>

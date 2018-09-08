@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .nodesmall {
+      width: 50px;
+      height: 50px;
+      background: url('images/1.jpg') no-repeat -159px -51px;
+      position: fixed;
+      right: 10px;
+      top: 40%;
+    }
+    .erweima {
+      position: absolute;
+      top: -500px;
+      left: -2000px;
+    }
+    .nodesmall a {
+      display: block;
+      width: 50px;
+      height: 50px;
+    }
+    .hide {
+      display: none;
+    }
+    .show {
+      display: block;
+    }
+    #box {
+      width: 100px;
+      height: 100px;
+      background-color: brown;
+    }
+  </style>
+</head>
+<body>
+  <input type="button" value="turn off" id='btn'>
+  <div>
+    <div class="nodesmall" id='node_small'>
+      <div class="erweima hide" id='er'>
+        <img src="images/1-2.jpg" alt="">
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <hr>
+  <input type="button" value="切换图片大小" id='switchsize'>
+  <div id='box'></div>
+  <script>
+    var btn = document.getElementById('btn');
+    var isopen = true;
+    btn.onclick = function () {
+      // 修改body的背景色
+      if (isopen) {
+        document.body.style.backgroundColor = 'black';
+        this.value = 'turn on';
+        isopen = false;
+      } else {
+        document.body.style.backgroundColor = 'white';
+        this.value = 'turn off';
+        isopen = true;
+      }      
+    }
+
+    var node_small = document.getElementById('node_small');
+    var er = document.getElementById('er');
+    node_small.onmouseover = function () {   
+      //   设置样式的原理就是覆盖原来的样式 所以要加上erweima的样式
+      // er.className = 'erweima show';
+      // 也可以用替换样式的方法
+      er.className = er.className.replace('hide','show');
+    }
+    node_small.onmouseout = function () {
+      // er.className = 'erweima hide';
+      er.className = er.className.replace('show','hide');
+    }
+
+
+    var switchsize = document.getElementById('switchsize');
+    switchsize.onclick = function () {
+      var box = document.getElementById('box');
+      box.style.width = '300px';
+      box.style.height = '300px';
+
+      // 设置位置要脱离文档流
+      box.style.position = 'absolute';
+      box.style.top = '500px';
+      box.style.left = '200px';
+
+      box.style.backgroundColor = 'yellow';
+    }
+  </script>
+</body>
+</html>

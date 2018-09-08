@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .gray {
+      background-color:cadetblue;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" class="" id="txtsearch" value="请输入搜索关键字" >
+  <input type="button" value="搜索" >
+
+  <script>
+    // 当搜索栏获得焦点时候  清空内容
+    var txt = document.getElementById('txtsearch');
+    function my$(id) {
+      return document.getElementById(id);
+    }
+
+    var txtsearch = my$('txtsearch');
+    // 当获得焦点的时候
+    txtsearch.onfocus = function () {
+      if (this.value === '请输入搜索关键字') {
+        this.value = '';
+        this.className = 'gray';
+      }
+    }
+    // 当失去焦点的时候
+    txtsearch.onblur = function () {
+      if (this.value.length === 0) {
+        this.value = '请输入搜索关键字';
+        this.className = '';
+      }
+    }
+  </script>
+</body>
+</html>

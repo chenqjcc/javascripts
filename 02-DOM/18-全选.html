@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .wrap {
+      width: 100%;
+      border: solid 1px goldenrod;
+      font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse:collapse;
+    }
+    th,td
+    {
+      color:#000000;
+      background-color:#EAF2D3;
+      font-size:1em;
+	    border:1px solid #98bf21;
+	    padding:3px 7px 2px 7px;
+      width: 300px;
+    }
+    tr th {
+      color:#000000;
+      background-color:#EAF2D3;
+      font-size:1em;
+	    border:1px solid #98bf21;
+	    padding:3px 7px 2px 7px;
+      width: 600px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>
+            <input type="checkbox" id='j_cball'>
+          </th>
+          <th>商品</th>
+          <th>价格</th>
+        </tr>
+      </thead>
+
+      <tbody id="j_tb">
+        <tr>
+          <td>
+              <input type="checkbox" >
+          </td>
+          <td>iphone8</td>
+          <td>8000</td>
+        </tr>
+        <tr>
+            <tr>
+                <td>
+                    <input type="checkbox" >
+                </td>
+                <td>iphone8</td>
+                <td>8000</td>
+              </tr>
+        </tr>
+        <tr>
+            <tr>
+                <td>
+                    <input type="checkbox" >
+                </td>
+                <td>iphone8</td>
+                <td>8000</td>
+              </tr>
+        </tr>
+        <tr>
+            <tr>
+                <td>
+                    <input type="checkbox" >
+                </td>
+                <td>iphone8</td>
+                <td>8000</td>
+              </tr>
+        </tr>
+        <tr>
+            <tr>
+                <td>
+                    <input type="checkbox" >
+                </td>
+                <td>iphone8</td>
+                <td>8000</td>
+              </tr>
+        </tr>
+        <tr>
+            <tr>
+                <td>
+                    <input type="checkbox" >
+                </td>
+                <td>iphone8</td>
+                <td>8000</td>
+              </tr>
+        </tr>
+        <tr>
+            <tr>
+                <td>
+                    <input type="checkbox" >
+                </td>
+                <td>iphone8</td>
+                <td>8000</td>
+              </tr>
+        </tr>
+      </tbody>      
+    </table>
+    <input type="button" value="反选" id='btn'>
+  </div>
+
+  
+  <script>
+    function my$(id) {
+      return document.getElementById(id);
+    }
+    var checkboxs = document.querySelectorAll('#j_tb input[type=checkbox]');
+
+    // 点击全选按钮，让子checkbox的选中状态跟按钮一致
+    var j_cball = my$('j_cball');
+    j_cball.onclick = function () {
+      // console.log(checkboxs);
+      var i = 0,len = checkboxs.length;
+      for (;i<len;i++) {
+        // 获取每一个checkbox
+        var checkbox = checkboxs[i];
+        checkbox.checked = this.checked;
+      }
+    }
+    
+
+    // 如果一个子checkbox没有选中，父checkbox也不选中
+    function singlechecked() {
+      var isallchecked = true;
+      for (i = 0;i < len;i++){
+        // 获取每一个checkbox
+        checkbox = checkboxs[i];
+        // 判断选中状态
+        if (!checkbox.checked) {
+          isallchecked = false;
+          break;
+        }
+      }
+      j_cball.checked = isallchecked;
+    }
+    
+    // 给所有的子checkbox注册点击事件，点击子的checkbox 如果有一个子checkbox没有选中,父checkbox也不选中
+  var i = 0,len = checkboxs.length;
+  for (;i < len;i++) {
+    var checkbox = checkboxs[i];
+    checkbox.onclick = function () {
+      singlechecked();
+    }
+  }
+  // 反选
+  my$('btn').onclick = function () {
+    var i = 0,len = checkboxs.length;
+    for (;i < len;i++) {
+      checkbox = checkboxs[i];
+      checkbox.checked = !checkbox.checked;      
+    }
+    singlechecked();
+  }
+  </script>
+</body>
+</html>

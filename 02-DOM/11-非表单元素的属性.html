@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <a id='link' href="http://www.baidu。com" title="百度一下">百度一下</a>
+    <img id="img"  src="images/1.jpg" alt="图片">
+    <script>
+        var link = document.getElementById('link');
+        var img = document.getElementById('img');
+
+        // 获取属性
+        // console.log(link.id);
+        // console.log(link.href);
+        // console.log(link.title);
+        // console.log(img.alt);
+        // console.log(img.src);
+
+        // 修改元素的属性
+        // link.onclick = function() {
+        //     img.src = 'images/3.jpg';
+        //     link.title = '我改过的title';
+        //     link.href = 'http://www.jd.com';
+        // }        
+        img.className = 'hide';
+    </script>
+</body>
+</html>

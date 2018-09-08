@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #box table {
+      border-collapse: collapse;
+    }
+  </style>
+</head>
+<body>
+  <div id='box'></div>
+
+  <script>
+    function setInnerText(element,content) {
+      // 判断是否支持innertext
+      if (typeof element.innerText === 'string') {
+        element.innerText = content;
+      } else {
+        element.innerContent = content;
+      }
+    }
+    var bodydata = [
+      {name: 'zs',subject: '语文',score: 67},
+      {name: 'ls',subject: '数据',score: 321},
+      {name: 'ss',subject: '数学',score: 321},
+      {name: 'bb',subject: '科学',score: 213},
+      {name: 'asds',subject: '音乐',score: 32},
+      {name: 'das',subject: '音雨',score: 156}
+    ];
+
+    // 表头数据
+    var headdata = ['姓名','科目','成绩','操作'];
+
+    // 表头
+    var table = document.createElement('table');
+    var box = document.getElementById('box');
+    box.appendChild(table);
+    // 创建的同时可以设置样式
+    table.border = '1px';
+    table.width = '500px';
+    table.cellSpacing = 0;
+
+    var thead = document.createElement('thead');
+    table.appendChild(thead);
+
+    var tr = document.createElement('tr');
+    thead.appendChild(tr);
+    tr.style.height = '50px';
+    tr.style.backgroundColor = 'lightgray';
+    
+    // var th = document.createElement('th');
+    // tr.appendChild(th);
+    // setInnerText(th,'姓名');
+    // th = document.createElement('th');
+    // tr.appendChild(th);
+    // setInnerText(th,'科目');
+    // th = document.createElement('th');
+    // tr.appendChild(th);
+    // setInnerText(th,'成绩');
+
+    // 利用数组的遍历方法
+    headdata.forEach(function(item) {
+      var th = document.createElement('th');
+      tr.appendChild(th);
+      setInnerText(th,item);
+    })
+  </script>
+</body>
+</html>

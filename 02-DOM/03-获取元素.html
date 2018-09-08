@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>div盒子</div>
+    <div>div盒子</div>
+    <div>div盒子</div>
+    <p>p段落</p>
+
+    <script>
+        // HTMLCollection  元素的集合
+        var divs = document.getElementsByTagName('div');
+        console.log(divs);
+        for (var i = 0;i < divs.length;i++) {
+            var div = divs[i];
+            console.log(div);
+            console.dir(div);
+        }
+        // 
+        var arr = [];
+        console.log(arr);
+    </script>
+</body>
+</html>

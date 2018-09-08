@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" value="取消" id='btn'>
+
+  
+  <script>
+    // 定时
+    var timerId = setInterval(function() {
+      var date = new Date();
+      console.log(date);
+    },1000);
+    // 取消
+    var btn = document.getElementById('btn');
+    btn.onclick = function () {
+      clearInterval(timerId);
+    }
+    
+  </script>
+</body>
+</html>

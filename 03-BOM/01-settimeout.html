@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" value="取消" id='btn'>
+
+  <script>
+    var timerId = setTimeout(function () {
+      // console.log('hello word!');
+      // 5秒以后跳转
+      location.href = 'http://www.baidu.com';      
+    },3000);
+    // 取消跳转
+    var btn = document.getElementById('btn');
+      btn.onclick = function () {
+        clearTimeout(timerId);
+      };
+  </script>
+</body>
+</html>

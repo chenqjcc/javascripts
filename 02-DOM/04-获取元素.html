@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form id="frm" action="1.php">
+        <input type="text" name="name"><br>
+        <input type="text" name="pwd"><br>
+        <input type="radio" name="sex">
+        <input type="radio" name="sex">
+        <input type="submit" value="登入">
+    </form>
+
+    <input type="text" name="test"><br>
+
+    <script>
+        // var frm = document.getElementById('frm');
+        // // 获取frm中所有的input标签
+        // var radio = frm.getElementsByTagName('input');
+        // console.log(radio);
+
+        // nodelist 类型
+        // 节点的集合
+        var radios = document.getElementsByName('sex');
+        console.log(radios);
+    </script>
+</body>
+</html>

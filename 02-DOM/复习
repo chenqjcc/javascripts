@@ -1,0 +1,27 @@
+1、概念
+  API
+  WEB API
+  DOM
+
+2、DOM常见的操作
+  获取元素
+  操作元素（设置元素的属性或者调用元素的方法
+  动态创建元素
+  事件（当什么时候做什么事情）
+
+3、获取元素
+  document.getElementById()
+  document.getElementsByTagName()
+  document.getElementByName()
+  document.getElementByClassName()
+  document.querySelector()
+  document.querySelectorAll()           ---通过范围查询所有  例如var spans = document.querySelectorAll('#hd span');
+
+4、事件
+  三要素：事件源、事件名称、事件处理程序
+
+5、元素的属性
+    元素的属性  包括对应的标签的属性
+    非表元素的属性  id src title href alt
+    表单元素的属性  name value type disabled  checked selected
+  

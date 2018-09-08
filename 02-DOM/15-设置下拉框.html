@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <select id='sel'>
+    <option value="">请随机选择</option>
+    <option value="">1</option>
+    <option value="">2</option>
+    <option value="">3</option>
+    <option value="">4</option>
+    <option value="">5</option>
+    <option value="">6</option>
+  </select>
+
+  <input type="button" value="随机" id='btn'>
+
+  <script src='common.js'></script>
+  <script>
+    var btn = document.getElementById('btn');
+    btn.onclick = function () {
+      // 选中option   并设置随机选择
+      var sel = document.getElementById('sel');
+      var options = sel.getElementsByTagName('option');
+      // 生成随机索引
+      var index = getRandom(1,options.length);
+      // 根据索引获取option
+      options[index].selected = true;
+    }
+  </script>
+</body>
+</html>
+

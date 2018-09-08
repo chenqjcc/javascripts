@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="i1" style="background-color: palevioletred;color: blueviolet;font-size: 40px;text-align: center">Hello!</div>
+    <script type="text/javascript">
+        //创建一个计时器setInterval
+        setInterval(function () {
+            //获取id进行操作
+            d1 = document.getElementById("i1");
+            //将获取的id中的字符串拿到
+            d1_text = d1.innerText;
+            first_char = d1_text[0];//字符串索引
+            sub_char = d1_text.slice(1,d1_text.length);//字符串切片
+            new_str = sub_char + first_char;;//字符串拼接
+            d1.innerText = new_str;//将拼接后的字符串重新放入对应id里面
+        },1000)//每隔一秒执行一次function方法
+    </script>
+</body>
+</html>

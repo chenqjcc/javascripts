@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: black;
+        }
+        .hidden {
+            display: none;
+        }
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <input id='btn' type="button" value="隐藏">
+    <div id='box'></div>
+    
+    <script>
+        // 获取事件  给按钮注册事件  控制div显示还是隐藏
+        var btn = document.getElementById('btn');
+        var box = document.getElementById('box');
+        var isShow = true;
+        btn.onclick = function () {
+            if (isShow) {
+                box.className = 'hidden';
+                btn.value = '显示';
+                isShow = false;
+            } else {
+                box.className = 'show';
+                btn.value = '隐藏';
+                isShow = true;
+            }
+            
+        }
+    </script>
+</body>
+</html>

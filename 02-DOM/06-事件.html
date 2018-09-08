@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" id="btn" value="点我">
+
+    <script>
+        var obj = {
+            name: "cqj",
+            say: function() {
+
+            }
+        };
+        // js的动态特性 可以随时给对象增加成员
+        obj.test = function() {
+            alert("hello chenqj")
+        }
+        // 根据id获取按钮元素
+        var btn = document.getElementById("btn");
+        // 给按钮注册事件
+        // on  当什么时候  click点击
+        btn.onclick = function() {
+            // 匿名函数
+            alert("你点我干什么！")
+        }
+
+    </script>
+</body>
+</html>

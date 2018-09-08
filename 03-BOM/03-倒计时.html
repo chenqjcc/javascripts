@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      background-color:cadetblue;
+      
+    }
+    h1 {
+      background-color: brown;
+      height: 200px;
+      width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 200px;
+      border-radius: 50px;
+      margin-top: 100px;
+    }
+    
+    #time-item {
+      width: 800px;
+      height: 100px;
+      margin: 0 auto;
+      background-color: azure;
+      margin-top: 50px;
+      padding: 10px 10px 10px 10px;
+      box-sizing: border-box;
+      line-height: 40px;
+      font-size: 80px;
+      border-radius: 20px;
+    }
+    #day,#hour,#minute,#second {
+      display: inline-block;
+      height: 80px;
+      width: 80px;
+      border-radius: 20px;
+      line-height: 80px;
+      font-size: 60px;
+      margin-right: 17px;
+    }
+
+    #day {
+      background-color:blueviolet;
+    }
+    #hour {
+      background-color:beige;
+    }
+    #minute {
+      background-color:darkgreen;
+    }
+    #second {
+      background-color: coral;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>距离光棍节，还有</h1>
+  <div id="time-item">
+    <span><span id='day'>00</span>天</span>
+    <strong><span id='hour'>00</span>时</strong>
+    <strong><span id='minute'>00</span>分</strong>
+    <strong><span id='second'>00</span>秒</strong>
+  </div>
+
+  <script>
+    // 写一个函数，计算时间差
+    function getInterval(start,end) {
+      // 时间差毫秒值
+      var interval = end - start;
+      // 转化为秒 相差总共的秒数
+      interval /= 1000;
+      var day,hour,minute,second;
+      day = Math.floor(interval / 60 / 60 / 24);
+      hour = Math.floor(interval / 60 / 60 % 24);
+      minute = Math.floor(interval / 60 % 60);
+      second = Math.floor(interval % 60);
+      // 方法2
+      // 数值不够两位的补0
+      // 简单类型和复杂类型的区别   复杂类型需要有返回值
+      // // 简单类型：5种数据类型   复杂类型：对象      
+      // var arr = [day,hour,miunte,second];
+      // arr.forEach(function(item) {
+      //   item = item < 10 ? '0' +item : item;
+      // });
+      return{
+        day: day,
+        hour: hour,
+        minute: minute,
+        second: second
+      }
+    }
+
+    var spandday = document.getElementById('day');
+    var spanhour = document.getElementById('hour');
+    var spandminute = document.getElementById('minute');
+    var spandsecond = document.getElementById('second');
+
+    // 倒计时
+    var end = new Date('2018-11-11');
+
+    // setInterval会调用函数，所里这里只要填函数名，不需要调用
+    setInterval(countdown,1000);
+
+    function countdown() {
+      // 获取当前时间
+      var start = new Date();
+      var obj = getInterval(start,end);
+
+      // 方法1
+      obj.hour = obj.hour < 10 ? '0' + obj.hour : obj.hour;
+      obj.minute = obj.minute < 10 ? '0' + obj.minute : obj.minute;
+      obj.day = obj.day < 10 ? '0' + obj.day : obj.day;
+      obj.second = obj.second < 10 ? '0' + obj.second : obj.second;
+
+      spandday.innerText = obj.day;
+      spanhour.innerText = obj.hour;
+      spandminute.innerText = obj.minute;
+      spandsecond.innerText = obj.second;
+    }
+  </script>
+</body>
+</html>

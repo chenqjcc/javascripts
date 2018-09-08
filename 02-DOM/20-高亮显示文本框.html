@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  
+</head>
+<body>
+  <input type="text"><br>
+  <input type="text"><br>
+  <input type="text"><br>
+  <input type="text"><br>
+  <input type="text"><br>
+  <input type="text"><br>
+  <input type="text"><br>
+  <input type="text"><br>
+  <input type="text"><br>
+  <input type="button" value="按钮">
+  <hr>
+  <ul id="mv">
+    <li>西斯</li>
+    <li>阿修罗</li>
+    <li>凤姐</li>
+    <li>阿三</li>
+    <li>李四</li>
+    <li>陈阿大</li>
+    <li>李小龙</li>
+  </ul>
+  <script>
+    // 高亮显示输入框
+    var texts = document.querySelectorAll('input[type=text]');
+    var i = 0,len = texts.length;
+    for (;i < len;i++) {
+      var text = texts[i];
+      // 获得焦点
+      text.onfocus = function () {
+        this.style.backgroundColor = 'lightgray';
+      }
+      // 失去焦点
+      text.onblur = function () {
+        this.style.backgroundColor = '';
+      }
+    }
+
+    var bg;   /* 记录this的背景色 */
+    // 隔行变色
+    var lists = document.querySelectorAll('#mv li');
+    var i = 0,len = lists.length;
+    for (;i < len;i++) {
+      if ( i % 2 === 0) {
+        lists[i].style.backgroundColor = 'green';
+      } else {
+        lists[i].style.backgroundColor = 'chocolate';
+      }
+      lists[i].style.width = '300px';
+      lists[i].style.height = '30px';
+      lists[i].style.padding = '10px';
+      lists[i].style.margin = '20px';      
+
+      lists[i].onmouseover = function () {
+        // 先把原来的背景色记录下来.以便鼠标离开的时候初始化
+        bg = this.style.backgroundColor;
+        this.style.backgroundColor = '#ccc';        
+      }
+      lists[i].onmouseout = function () {
+        this.style.backgroundColor = bg;
+      }
+    }
+  </script>
+</body>
+</html>

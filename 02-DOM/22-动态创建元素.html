@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id='box'></div>
+
+<!-- 方法1  -->
+  <!-- <script>
+    console.time('flag');  /* 记录开始时间 */
+    var box = document.getElementById('box');
+    var data = ['aa','bb','cc','dd'];
+
+    box.innerHTML = '<ul>';
+      // foreach 遍历数组，参数死一个函数  这个函数中有两个参数（数组中元素、索引）
+    data.forEach (function(item,index) {
+      box.innerHTML += '<li>' + item + '</li>';
+    });
+    box.innerHTML += '</ul>';
+
+    console.timeEnd('flag');         /* 计算运行时间 */
+  </script> -->
+
+
+
+<!-- 方法2 -->
+  <script>
+    console.time('flag');  /* 记录开始时间 */
+    var box = document.getElementById('box');
+    var data = ['aa','bb','cc','dd'];
+    
+    var arr = [];
+    arr.push('<ul>')
+      // foreach 遍历数组，参数死一个函数  这个函数中有两个参数（数组中元素、索引）
+    data.forEach (function(item,index) {
+      arr.push('<li>' + item + '</li>');
+    });
+    arr.push('</ul>')
+    
+    box.innerHTML = arr.join('');
+    console.timeEnd('flag');         /* 计算运行时间 */
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <a id="link" href="#">切换图片</a><br>
+    <!-- 照片为等比例缩放 -->
+    <img id="img" src="images/1.jpg" alt="" width="300" height="200">
+    <script>
+        var link = document.getElementById("link");
+        var flag = 1;
+        link.onclick = function() {
+            var img = document.getElementById("img");
+            console.dir(img);
+            console.log(img.width);
+            console.log(img.alt);
+            if (flag === 1) {
+                flag = 2;
+                img.src = "images/2.jpg";
+            } else {
+                flag = 1;
+                img.src = "images/1.jpg";
+            }            
+        }
+    </script>
+</body>
+</html>

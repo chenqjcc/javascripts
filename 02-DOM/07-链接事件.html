@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <a id="link" href="http://www.baidu.com">baidu</a>
+    <script>
+        // element  这里获取的是对象
+        // var link = document.getElementById('link');
+        // link.onclick = function() {
+        //     alert("马上去百度页面，稍等");
+        //     return flase;
+        // }
+
+        // elements  这里获取的是集合
+        var link = document.getElementsByTagName('a');
+            link[0].onclick = function() {
+                alert("马上去百度页面，稍等");
+                return false;
+            }       
+    </script>
+</body>
+</html>
